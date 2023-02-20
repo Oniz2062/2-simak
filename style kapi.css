@@ -1,0 +1,76 @@
+.kapi{
+    float: right;
+    width: 50%;
+    height: 60%;
+    background-color: azure;
+    font-size: 30 px;
+    border: 2px solid black;
+    text-align: center;
+    }
+
+g .golova{
+    opacity: 0;
+    }
+    g :hover.golova{
+    fill:green;
+    opacity: 0.8;
+    cursor: pointer;
+    }
+
+g .nos{
+    opacity: 0;
+    }
+    g :hover.nos{
+    fill:green;
+    opacity: 0.8;
+    cursor: pointer;
+    }
+
+g .telo{
+    opacity: 0;
+    }
+    g :hover.telo{
+    fill:green;
+    opacity: 0.8;
+    cursor: pointer;
+    }
+g .nog-pered{
+   opacity: 0;
+   }
+   g :hover.nog-pered{
+   fill:green;
+   opacity: 0.8;
+   cursor: pointer;
+   }
+g .puzo{
+   opacity: 0;
+   }
+   g :hover.puzo{
+   fill:green;
+   opacity: 0.8;
+   cursor: pointer;
+   }
+g .zad{
+   opacity: 0;
+   }
+   g :hover.zad{
+   fill:green;
+   opacity: 0.8;
+   cursor: pointer;
+   }
+g .ushi{
+    opacity: 0;
+    }
+    g :hover.ushi{
+    fill:green;
+    opacity: 0.8;
+    cursor: pointer;   
+    }
+g .zad-nog{
+    opacity: 0;
+    }
+    g :hover.zad-nog{
+    fill:green;
+    opacity: 0.8;
+    cursor: pointer;   
+    }
