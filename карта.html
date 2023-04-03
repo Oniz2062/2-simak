@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="style kart.css">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+    <script>
+        var map;
+        var samgtu=[
+            [53.208763, 50.124508, "https://s2.stc.all.kpcdn.net/putevoditel/projectid_534672/images/tild3639-6439-4731-b062-353934313536__212.jpg", "Главный корпус", "https://samgtu.ru"],
+            [53.209596, 50.124588, "https://i0.photo.2gis.com/images/branch/0/30258560102618622_17a0_600x600.jpg", "1-ый Корпус", "https://samgtu.ru"],
+            [53.209611, 50.125838, "https://avatars.mds.yandex.net/get-altay/4524003/2a0000017c276874d20852974dfb6f36b924/XXXL", "8-ой корпус", "https://samgtu.ru"],
+            [53.209019, 50.122075, "https://avatars.mds.yandex.net/get-altay/2776464/2a000001750811c91d4d215873dbb34571ec/XXXL", "7-ой корпус", "https://samgtu.ru"],
+            [53.208815, 50.128120, "https://avatars.mds.yandex.net/get-altay/1027861/2a00000185beb13fc4e4e0ab102332b2fe9d/XXXL", "10-ый корпус", "https://samgtu.ru"],
+            [53.199326, 50.104948, "https://avatars.mds.yandex.net/get-altay/5298780/2a0000017beff6ba936e80ef02dc1778c4d8/XXXL", "3-ий корпус", "https://samgtu.ru"],
+            [53.198552, 50.108418, "https://avatars.mds.yandex.net/get-altay/7631548/2a00000184263589c670a8069aea319b9562/XXXL", "4-ый корпус", "https://samgtu.ru"],
+            [53.196550, 50.106014, "https://avatars.mds.yandex.net/get-altay/7982580/2a00000185b72d4d94374e30764ca16c8f87/XXXL", "6-ой корпус", "https://samgtu.ru"],
+            [53.196140, 50.094861, "https://avatars.mds.yandex.net/get-altay/239474/2a00000186e1d5cb2ae16f4e24f30e1b396a/XXXL", "2-ой корпус", "https://samgtu.ru"],
+            [53.197882, 50.104972, "https://avatars.mds.yandex.net/get-altay/5477999/2a0000017eff1b90369da60c1736852d46fe/XXXL", "5-ый корпус", "https://samgtu.ru"],
+            [53.207627, 50.128738, "https://avatars.mds.yandex.net/get-altay/4255939/2a0000017c207a4036e1c15835b7eae85536/XXXL", "9-ый корпус", "https://samgtu.ru"],
+            [53.215042, 50.169322, "https://avatars.mds.yandex.net/get-altay/1007082/2a00000186f5819c8b89b4dee7de62b15ea1/XXXL", "11-ый корпус", "https://samgtu.ru"]
+            ];
+        DG.then(function () {
+            var i=0;
+            var marker;
+            var myIcon;
+            map = DG.map('map', {
+                center: [53.208763, 50.124508],
+                zoom: 20
+            });
+            //фор
+            for(i=0;i<=11;i++){
+            myIcon = DG.icon({
+                    iconUrl: samgtu[i][2],
+                    iconSize: [48, 48]
+                    });
+            marker = DG.marker([samgtu[i][0], samgtu[i][1]], { icon: myIcon })
+            .addTo(map).bindPopup('<div><a href='+samgtu[i][4]+'> '+samgtu[i][3]+' <img src='+samgtu[i][2]+' style="height: 50px "></a></div>')
+            .bindLabel(samgtu[i][3], {
+                    static: true
+                    });
+            }
+            //
+        });  
+    </script>
+    <div id="map">
+        </div>
+</body>
+</html>
