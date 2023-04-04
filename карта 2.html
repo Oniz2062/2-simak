@@ -7,9 +7,11 @@
 </head>
 <body>
     <script>
+        var map;
+        var polyline;
+        var coords=[];
         clickedElement = document.getElementById('clicked_element');
         DG.then(function () {
-            var map,
             clickedElement = document.getElementById('clicked_element'),
             map = DG.map('map', {
                 center: [53.208763, 50.124508],
@@ -18,10 +20,31 @@
                 scrollwheelzoom: true,
             });
             map.on('click', function(e) {
-                    clickedElement.innerHTML += ['' + e.latlng.lat + ',' + e.latlng.lng+''];
+                coords.push([e.latlng.lat ,e.latlng.lng]);   
+                clickedElement.innerHTML += [' [' + e.latlng.lat + ' ,' + e.latlng.lng+'], '];
+                if (!polyline){
+                polyline = DG.polyline(coords, {
+                    color: 'blue'
+                }).addTo(map);
+            } else{
+                polyline.setLatLngs(coords).redraw();
+            }
                 });
-        });  
+        });
+    var removelastcoord=()=>{
+        DG.then(function(){
+        coords.pop,
+        console.logs(coords);
+        polyline = DG.polyline(coords,{}).addTo(map);
+        });
+    }  
     </script>
+    <div>
+    <a>Отменить</a>
+    </div>
+    <div>
+    Вы кликнули в: <span id="clicked_element"></span>
+    </div>
     <div id="map">
         </div>
 </body>
