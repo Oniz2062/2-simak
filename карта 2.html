@@ -7,13 +7,19 @@
 </head>
 <body>
     <script>
-        var map;
+        clickedElement = document.getElementById('clicked_element');
         DG.then(function () {
+            var map,
+            clickedElement = document.getElementById('clicked_element'),
             map = DG.map('map', {
                 center: [53.208763, 50.124508],
-                zoom: 20
+                zoom: 20,
+                touchzoom: true,
+                scrollwheelzoom: true,
             });
-            //
+            map.on('click', function(e) {
+                    clickedElement.innerHTML += ['' + e.latlng.lat + ',' + e.latlng.lng+''];
+                });
         });  
     </script>
     <div id="map">
