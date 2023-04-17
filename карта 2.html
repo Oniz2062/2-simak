@@ -9,7 +9,11 @@
     <script>
         var map;
         var polyline;
+        var nameway=[];
         var coords=[];
+        var i = 1;
+        var click = false;
+        var ways=[[coords],[nameway]];
         clickedElement = document.getElementById('clicked_element');
         DG.then(function () {
             clickedElement = document.getElementById('clicked_element'),
@@ -36,11 +40,15 @@
         coords.pop,
         console.logs(coords);
         polyline = DG.polyline(coords,{}).addTo(map);
-        });
-    }  
+            });
+        };
+    function sohr(){
+    nameway[i]= prompt("Введите название маршрута!",''+i+'');
+    i+=1;
+    };
     </script>
     <div>
-    <a>Отменить</a>
+    <input type="button" onClick="function sohr()" value="Сохранить">
     </div>
     <div>
     Вы кликнули в: <span id="clicked_element"></span>
