@@ -10,10 +10,11 @@
         var map;
         var polyline;
         var nameway=[];
-        var coords=[];
-        var i = 1;
+        let coords=[];
+        var i = 0;
         var click = false;
-        var ways=[[coords],[nameway]];
+        var func = false;
+        let way=[coords, nameway];
         clickedElement = document.getElementById('clicked_element');
         DG.then(function () {
             clickedElement = document.getElementById('clicked_element'),
@@ -24,6 +25,10 @@
                 scrollwheelzoom: true,
             });
             map.on('click', function(e) {
+                if(func){
+            coords.splice(0,coords.length);
+            func=false;
+            }
                 coords.push([e.latlng.lat ,e.latlng.lng]);   
                 clickedElement.innerHTML += [' [' + e.latlng.lat + ' ,' + e.latlng.lng+'], '];
                 if (!polyline){
@@ -37,18 +42,21 @@
         });
     var removelastcoord=()=>{
         DG.then(function(){
-        coords.pop,
-        console.logs(coords);
-        polyline = DG.polyline(coords,{}).addTo(map);
+        coords.pop(),
+        polyline.setLatLngs(coords).redraw();
             });
         };
     function sohr(){
-    nameway[i]= prompt("Введите название маршрута!",''+i+'');
+    nameway[0]= prompt('Введите название маршрута!',''+i+'');
     i+=1;
+    console.log(way);
+    clickedElement.innerHTML = '';
+    func=true;
     };
     </script>
     <div>
-    <input type="button" onClick="function sohr()" value="Сохранить">
+    <input type="button" onClick="sohr()" value="Сохранить">
+    <input type="button" value="Отменить" onClick="removelastcoord()">
     </div>
     <div>
     Вы кликнули в: <span id="clicked_element"></span>
