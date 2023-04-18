@@ -7,14 +7,16 @@
 </head>
 <body>
     <script>
+        var sohrway=[];
         var map;
         var polyline;
+        var unikline;
         var nameway=[];
         let coords=[];
         var i = 0;
         var click = false;
         var func = false;
-        let way=[coords, nameway];
+        let way=[coords];
         clickedElement = document.getElementById('clicked_element');
         DG.then(function () {
             clickedElement = document.getElementById('clicked_element'),
@@ -25,10 +27,10 @@
                 scrollwheelzoom: true,
             });
             map.on('click', function(e) {
-                if(func){
-            coords.splice(0,coords.length);
-            func=false;
-            }
+            //     if(func){
+            // coords.splice(0,coords.length);
+            // func=false;
+            // }
                 coords.push([e.latlng.lat ,e.latlng.lng]);   
                 clickedElement.innerHTML += [' [' + e.latlng.lat + ' ,' + e.latlng.lng+'], '];
                 if (!polyline){
@@ -40,19 +42,40 @@
             }
                 });
         });
+    var sohrwayplus=()=>{
+    DG.then(function(){
+        unikline=DG.polyline(sohrway[i],{color:'red'}).bindLabel(nameway[i]).addTo(map);
+        console.log(sohrway[i],nameway[i]);
+    });
+};
     var removelastcoord=()=>{
         DG.then(function(){
         coords.pop(),
         polyline.setLatLngs(coords).redraw();
             });
-        };
-    function sohr(){
-    nameway[0]= prompt('Введите название маршрута!',''+i+'');
-    i+=1;
-    console.log(way);
-    clickedElement.innerHTML = '';
-    func=true;
+};
+    function sohr(){ 
+        i+=1;       
+        nameway[i]= prompt('Введите название маршрута!',''+i+'');
+        sohrway[i]=coords;
+        sohrwayplus();
+        clickedElement.innerHTML = '';
+        coords=[];
+        CreateWayButton();
+        
+};
+    function CreateWayButton() {
+    var button = document.createElement("input");
+    button.type = "button";
+    button.value = ''+i+'';
+    button.onclick = function zoombutn(){
+        map.flyTo(sohrway[button.value][1], 18, {
+        animate: true,
+        duration: 1.5
+                        });
     };
+    document.body.append(button);
+};
     </script>
     <div>
     <input type="button" onClick="sohr()" value="Сохранить">
@@ -63,5 +86,7 @@
     </div>
     <div id="map">
         </div>
+    <ul>
+    </ul>
 </body>
 </html>
