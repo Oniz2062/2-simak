@@ -1,12 +1,8 @@
 #map{ 
     top: 2px;
-    width: 80vh; 
+    width: 800px; 
     height: 80vh; 
-    margin: right;
-    display:inline-block;
-}
-#knopki{
-    display: table;
+    margin: 0 auto;
 }
 body{
     background-color: whitesmoke;
