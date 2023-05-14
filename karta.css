@@ -1,0 +1,24 @@
+#map{ 
+    top: 2px;
+    width: 80vh; 
+    height: 80vh; 
+    margin: right;
+    display:inline-block;
+}
+#knopki{
+    display: table;
+}
+body{
+    background-color: whitesmoke;
+}
+input{
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-width: 1px;
+    padding: 1px 7px 2px;
+    text-rendering: auto;
+    color: initial;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 11px system-ui;
+}

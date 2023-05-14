@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="karta.css">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+    <script src="kod.js">
+    </script>
+    <div id="knopki">
+        <input type="button" onClick="sohr_way()" value="Сохранить путь">
+        <input type="button" value="Отменить последнее нажатие" onClick="removelastcoord()">
+        <input type="button" value="Сохранить маркер" onClick="sohrMarker()">
+        <input type="button" value="Удалить последний маркер" onClick="deletMark()">
+        </div>
+    <div>
+    Вы кликнули в: <span id="clicked_element"></span>
+    </div>
+    <div id="map">
+    </div>
+    <ul>
+    </ul>
+</body>
+</html>

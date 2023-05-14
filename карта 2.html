@@ -27,10 +27,6 @@
                 scrollwheelzoom: true,
             });
             map.on('click', function(e) {
-            //     if(func){
-            // coords.splice(0,coords.length);
-            // func=false;
-            // }
                 coords.push([e.latlng.lat ,e.latlng.lng]);   
                 clickedElement.innerHTML += [' [' + e.latlng.lat + ' ,' + e.latlng.lng+'], '];
                 if (!polyline){
