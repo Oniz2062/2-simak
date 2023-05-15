@@ -13,11 +13,20 @@
         <input type="button" value="Отменить последнее нажатие" onClick="removelastcoord()">
         <input type="button" value="Сохранить маркер" onClick="sohrMarker()">
         <input type="button" value="Удалить последний маркер" onClick="deletMark()">
-        <input type="button" value="Сохранение сессии" onClick="sohr()">
+        <input type="button" value="Сохранение сессии" onClick="save()">
+        <input type="button" value="очистить сессию" onClick="clear()">
+        <input type="button" value="загрузка" onClick="load()">
         </div>
     <div id="map">
     </div>
-    <ul>
-    </ul>
+    <div id="knopki">
+        <input type="button" onClick="sohr_way()" value="приблизить">
+        <input type="button" value="отдалить" onClick="removelastcoord()">
+        <input type="checkbox" id="traffic" onchange="traffic()" > Трафик
+        <input type="checkbox" id="kolesiko" onchange="kolesiko()"> Приближение колёсиком
+        <input type="checkbox" id="dvigKart" onchange="dvigKart()" > Двигать карту
+        <input type="button" value="очистить сессию" onClick="clear()">
+        <input type="button" value="загрузка" onClick="load()">
+        </div>
 </body>
 </html>

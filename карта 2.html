@@ -39,16 +39,14 @@
                 });
         });
     var sohrwayplus=()=>{
-    DG.then(function(){
-        unikline=DG.polyline(sohrway[i],{color:'red'}).bindLabel(nameway[i]).addTo(map);
-        console.log(sohrway[i],nameway[i]);
-    });
+    unikline=DG.polyline(sohrway[i],{color:'red'}).bindLabel(nameway[i]).addTo(map);
+    console.log(sohrway[i],nameway[i]);
 };
     var removelastcoord=()=>{
-        DG.then(function(){
-        coords.pop(),
-        polyline.setLatLngs(coords).redraw();
-            });
+    DG.then(function(){
+    coords.pop(),
+    polyline.setLatLngs(coords).redraw();
+    });
 };
     function sohr(){ 
         i+=1;       
